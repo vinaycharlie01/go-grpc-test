@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+
+package aitech;
+
+option go_package = "github.com/vinaycharlie07/ai/aitech/proto";
+
+service DataService {
+    // Server-side streaming RPC
+    rpc SendData(Empty) returns (stream DataResponse);
+}
+
+message Empty {}
+
+message DataResponse {
+   repeated int64 message = 1;
+    int64 timestamp = 2;
+}
